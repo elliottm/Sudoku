@@ -16,6 +16,13 @@ describe Grid do
  	  expect(grid.cells).to start_with [0,1,5,0,0]
 	end
 
+	it 'can create 81 cell objects' do
+  	  grid.split_the_string
+  	  grid.to_integer_array
+  	  grid.create_cell_objects
+  	  expect(grid.result_count).to eq 81
+  	end
+
   	it 'should split array into 9 rows' do
   	  grid.split_the_string
   	  grid.split_the_array_into_rows(9)
