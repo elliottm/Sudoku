@@ -2,15 +2,20 @@ class Grid
 
   def initialize cells
     @cells = cells
-    @rows
   end
-  
+
+  attr_reader :cells
+
   def split_the_string
   	@cells = @cells.split('')
   end
 
   def cell_count
     @cells.count
+  end
+
+  def to_integer_array
+    @cells = @cells.map {|element| element.to_i }
   end
 
   def split_the_array_into_rows number
@@ -24,5 +29,6 @@ class Grid
   def row_count
     @rows.count
   end
+
 
 end

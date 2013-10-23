@@ -9,6 +9,12 @@ describe Grid do
   	  grid.split_the_string
   	  expect(grid.cell_count).to eq 81
   	end
+
+  	it 'should split into integer array' do
+  	  grid.split_the_string
+  	  grid.to_integer_array
+ 	  expect(grid.cells).to start_with [0,1,5,0,0]
+	end
     
     it 'should know it has no rows' do
   	  expect(grid).not_to have_rows
@@ -26,10 +32,5 @@ describe Grid do
   	  expect(grid.row_count).to eq 9
   	end
 
-  	it 'should know the first cell is unsolved' do
-  	  grid.split_the_string
-  	  grid.split_the_array_into_rows(9)
-  	  
-  
   end
 end
