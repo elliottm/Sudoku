@@ -36,5 +36,21 @@ describe Grid do
   	  expect(grid.lookup_cell(0,1)).to eq 1
   	end
 
+  	it 'should have an unsolved first cell' do
+  	  grid.split_the_string
+  	  grid.to_integer_array
+  	  grid.split_the_array_into_rows(9)
+  	  grid.solved_lookup(0,0)
+  	  expect(grid).not_to be_solved
+  	end
+
+  	it 'should have a solved second cell' do
+      grid.split_the_string
+  	  grid.to_integer_array
+  	  grid.split_the_array_into_rows(9)
+  	  grid.solved_lookup(0,1)
+  	  expect(grid).to be_solved
+  	end
+
   end
 end

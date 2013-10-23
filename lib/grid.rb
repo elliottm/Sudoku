@@ -31,7 +31,19 @@ class Grid
   end
 
   def lookup_cell number, number1
-    @cells[number][number1]
+    cell_value = @cells[number][number1]
+  end
+
+  def solved? 
+    @solved
+  end
+
+  def solved_lookup number, number1
+  	if lookup_cell(number, number1) > 0
+  	  @solved = true
+  	else 
+  	  @solved = false
+  	end
   end
 
 end
