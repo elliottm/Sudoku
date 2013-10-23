@@ -19,16 +19,19 @@ class Grid
   end
 
   def split_the_array_into_rows number
-  	@rows = @cells.each_slice(number).to_a
-  end
-
-  def has_rows?
-    @rows
+  	@cells = @cells.each_slice(number).to_a
   end
 
   def row_count
-    @rows.count
+  	@cells.count
+  end
+  
+  def lookup_rows number
+  	@cells[number]
   end
 
+  def lookup_cell number, number1
+    @cells[number][number1]
+  end
 
 end

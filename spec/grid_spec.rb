@@ -15,21 +15,25 @@ describe Grid do
   	  grid.to_integer_array
  	  expect(grid.cells).to start_with [0,1,5,0,0]
 	end
-    
-    it 'should know it has no rows' do
-  	  expect(grid).not_to have_rows
-  	end
-
-  	it 'should know it has rows' do
-  	  grid.split_the_string
-  	  grid.split_the_array_into_rows(9)
-  	  expect(grid).to have_rows
-  	end
 
   	it 'should split array into 9 rows' do
   	  grid.split_the_string
   	  grid.split_the_array_into_rows(9)
   	  expect(grid.row_count).to eq 9
+  	end
+
+  	it 'can look up a row' do
+  	  grid.split_the_string
+  	  grid.to_integer_array
+  	  grid.split_the_array_into_rows(9)
+  	  expect(grid.lookup_rows(0)).to eq [0,1,5,0,0,3,0,0,2]
+  	end
+
+  	it 'can look up a cell within a row' do
+  	  grid.split_the_string
+  	  grid.to_integer_array
+  	  grid.split_the_array_into_rows(9)
+  	  expect(grid.lookup_cell(0,1)).to eq 1
   	end
 
   end
