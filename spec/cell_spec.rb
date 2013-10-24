@@ -26,21 +26,33 @@ describe Cell do
   	expect(cell.row_position).to eq 1
   end
 
-   it 'knows it is in row nine' do
-  	cell = Cell.new 0, 79
+   it 'knows it is in row 3' do
+  	cell = Cell.new 0, 29
+  	expect(cell.row_position).to eq 4
+  end
+
+  it 'knows it is in column 3' do
+  	cell = Cell.new 0, 29
   	cell.row_position
-  	expect(cell.row).to eq 9
-  end
-    
+  	expect(cell.column_position).to eq 3
+  end 
 
-  it 'knows it is in row 1' do
-  	cell = Cell.new 0, 9
+  it 'knows it is in in box 2' do
+  	cell = Cell.new 0, 29
+  	cell.row_position
   	cell.column_position
-  	expect(cell.column).to eq 1
+  	expect(cell.box_position).to eq 4
   end
 
-  it 'knows its candidates/values are posssible' do
-  end
+
+  # it 'can return its row neighbours', :rows=>true do
+  #   cell = Cell.new 0, 29
+  #   grid = double(:grid,:results => [Cell.new(0,0),Cell.new(100,30)])
+  #   expect(cell.row_neighbours(grid).first.value).to eq 100
+  # end
+
+
+  
 
 
 

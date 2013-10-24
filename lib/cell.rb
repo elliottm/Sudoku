@@ -3,6 +3,9 @@ class Cell
 	def initialize value, position
 		@value = value
 		@position = position
+		@row = self.row_position
+		@column = self.column_position
+		@box = self.box_position
 	end
 
 	attr_accessor :value
@@ -20,7 +23,7 @@ class Cell
     @position
   end
 
-  def row_position
+  def row_position #build for 9x9 suduko only ! 
     if @position < 8
     	@row = 1
     elsif @position < 17
@@ -43,9 +46,40 @@ class Cell
   end
   
   def column_position
-    return @column = 1 if @position % 9
-    nil
+    adjust_position = @position + 1
+    return @column = 9 if @position == 81
+    @column = adjust_position % 9
   end
+
+  def box_position
+  	if @row <= 3 and @column <= 3
+  		@box = 1
+  	elsif @row <= 3 and @column <= 6
+  	  @box = 2 
+  	elsif @row <= 3 and @column <= 9
+  	  @box = 3
+  	elsif @row <= 6 and @column <= 3
+  	  @box = 4
+  	elsif @row <= 6 and @column <= 6
+  	  @box = 5
+  	elsif @row <= 6 and @column <= 9
+  	  @box = 6
+  	elsif @row <= 9 and @column <= 3
+  	  @box = 7
+  	elsif @row <= 9 and @column <= 6
+  	  @box = 8
+  	else @row <= 9 and @column <= 9
+  	  @box = 9
+  	end
+  end
+
+  # def row_neighbours(grid)
+  #   @row_neighbours = grid.results.select { |c| row == c.row}
+  # end
+
+  # above = rowneighbours for within cell class..test aswell in spec file !
+  #DIGEST !!!!
+
 
 
 end

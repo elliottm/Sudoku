@@ -59,5 +59,35 @@ describe Grid do
   	  expect(grid).to be_solved
   	end
 
+  	# it 'can return all of the cell row neighbours' do
+  	#   cell = Cell.new 0, 10
+  	#   grid.split_the_string
+   #    grid.to_integer_array
+   #    grid.create_cell_objects
+   #    grid.row_neighbours(cell)
+   #    expect(grid.results.select {|c| c.row }).to eq [0,0,0,1,0,0,9,0,6]
+   #   # how to test really??
+   #  end
+    
+   #  it 'can return all of the cell row neighbours' do
+  	#   cell = Cell.new 0, 29
+  	#   grid.split_the_string
+   #    grid.to_integer_array
+   #    grid.create_cell_objects
+   #    expect(grid.column_neighbours(cell)).to eq []
+   #   # how to test really??
+   #  end
+
+   #  # it 'can return all of the cell box neighbours' do
+   #  #   cell = Cell.new 0, 29
+  	#  #  grid.split_the_string
+   #  #   grid.to_integer_array
+   #  #   grid.create_cell_objects
+   #  #   expect(grid.column_neighbours(cell)).to eq []
+   #  # end
+   
+
+
+
   end
 end

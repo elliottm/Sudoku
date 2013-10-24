@@ -2,10 +2,10 @@ class Grid
 
   def initialize cells
     @cells = cells
-    @result
+    @results
   end
 
-  attr_reader :cells, :result
+  attr_reader :cells, :results
 
   def split_the_string
   	@cells = @cells.split('')
@@ -59,6 +59,31 @@ class Grid
   	end
   end
 
+  def row_neighbours cell
+    @row_neighbours = results.select { |c| cell.row == c.row }
+  end
+
+  def column_neighbours cell
+    @column_neighbours = results.select {|c| cell.column == c.column}
+  end
+
+  def box_neighbours cell
+  	@box_neighbours = results.select {|c| cell.box == c.box}
+  end
+
+  def unsolved
+  	@results.select {|c| c.value == 0 }
+  end
+
+  def candidates cell
+
+  (1..9).to_a - row_neighbours(cell) - column_neighbours(cell) - box_neighbours(cell)
+
+  end
+
+  # def cell_row_neighbours
+  #   cell.row == 
+  # end
   
   # @results << (cell = Cell.new(array.each {|num| return num})) 
 # def map_elements_into_cell
