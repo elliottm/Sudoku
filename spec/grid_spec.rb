@@ -37,11 +37,21 @@ describe Grid do
       expect(grid.box_neighbours(cell).last.value).to eq 8
     end
 
-    it 'knows cell candidates' do
-      cell = double :cell, {:row => 1, :column => 1, :box => 1}
+    it 'knows which cells are unsolved' do
+      cell = double :cell, {:solved? => 0 }
       grid.implement_puzzle_to_cells
-      expect(grid.candidates(cell)).to eq 9
-  end
+      expect(grid.cells_to_be_solved.last.value).to eq 0
+    end
+
+    it 'knows which cells are candidates for unsolved' do
+      cell = double :cell
+      grid.implement_puzzle_to_cells
+      grid.candidates(cell)
+      expect(grid.candidates(cell)).to eq []
+    end
+
+
+
 
 
 

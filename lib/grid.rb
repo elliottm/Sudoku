@@ -36,16 +36,25 @@ class Grid
   end
     #how to put into initialize?
 
-  def candidates cell
-    (1..9).to_a - [row_neighbours(cell.solved?)] - [column_neighbours(cell.solved?)] - [box_neighbours(cell.solved?)]
+  def cells_to_be_solved
+  	@cells.select {|cell| cell.solved? != true }
   end
+
+  def candidates cell
+  	for cell in cells_to_be_solved
+  	  (1..9).to_a - row_neighbours(cell) - column_neighbours(cell) - box_neighbours(cell) 
+    end
+  end
+  # def candidates cell
+  #   (1..9).to_a - [row_neighbours(cell.solved?)] - [column_neighbours(cell.solved?)] - [box_neighbours(cell.solved?)]
+  # end
 
   # def self.from_string(puzzle)
   # 	converted = ???
   # 	Grid.new(converted)
   # end
 
- #private breaks as can only be called within the class
+ #private breaks as can only be called within the class, eg not outside or through rspec
   def convert_puzzle
     @puzzle = @puzzle.split('').map {|element| element.to_i}
   end
